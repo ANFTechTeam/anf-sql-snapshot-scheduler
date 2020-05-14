@@ -1,0 +1,1 @@
+Test-Path "C:\Program Files\NetApp\ScSqlAp"
