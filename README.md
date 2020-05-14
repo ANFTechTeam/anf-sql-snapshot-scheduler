@@ -16,9 +16,9 @@ brew
 sequenceDiagram
 	HTTP Trigger ->>+ Azure Function : POST /api/checkInstall { ResourceGroupName, VMName }
 	Azure Function ->>+ Azure Subscription: get tag list of VM
-    Azure Subscription ->>+  Azure Function: Give list of Tags
-    Azure Function ->>+  Azure Function: Check if Netapp Tags exist
-    Azure Function ->>+  HTTP Trigger: if NetApp Tag is "True"
+	Azure Subscription ->>+  Azure Function: Give list of Tags
+	Azure Function ->>+  Azure Function: Check if Netapp Tags exist
+	Azure Function ->>+  HTTP Trigger: if NetApp Tag is "True"
 	Azure Function ->>+ Azure Subscription: is the VM On?
 					
 ```
