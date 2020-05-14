@@ -12,7 +12,7 @@ brew
 
 ### checkInstall
 
-``` mermaid
+```mermaid
 sequenceDiagram
 	HTTP Trigger ->>+ Azure Function : POST /api/checkInstall { ResourceGroupName, VMName }
 	Azure Function ->>+ Azure Subscription: get tag list of VM
