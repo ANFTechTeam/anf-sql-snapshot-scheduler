@@ -4,7 +4,24 @@
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[1.*, 2.0.0)"
   },
+  "extensions": {
+    "cosmosDb": {},
+    "durableTask": {},
+    "eventHubs": {},
+    "http": {
+      "routePrefix": "api"
+    },
+    "queues": {},
+    "sendGrid": {},
+    "serviceBus": {}
+  },
   "managedDependency": {
     "enabled": true
+  },
+  "logging": {
+    "logLevel": {
+      "Function.NetAppSQL": "Debug",
+      "default": "Debug"
+    }
   }
 }

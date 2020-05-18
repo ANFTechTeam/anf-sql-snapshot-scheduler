@@ -37,5 +37,3 @@ sequenceDiagram
   end
         Azure Function ->>+ HTTP Trigger: Result
 ```
-
-this function need a POST request on 

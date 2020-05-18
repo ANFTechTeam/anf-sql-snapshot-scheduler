@@ -34,6 +34,7 @@ switch ($tags[0].NetApp_SQL_Additions)
 
 $isVmPoweredOn = (Get-AzVm -ResourceGroupName $ResourceGroupName -Name $VMName -Status).Statuses[1].Code.Split("/")[1]
 
+# change to queue to have a more efficent process
 if($isVmPoweredOn -eq "deallocated")
 {
     Write-Verbose ("Starting VM $($VMName)"| Convertto-Json) -Verbose
@@ -41,6 +42,7 @@ if($isVmPoweredOn -eq "deallocated")
     Write-Verbose ("Started VM $($VMName)"| Convertto-Json) -Verbose
 }
 
+# another function to test installation
 $RunCommand = @{
     ResourceGroupName = $ResourceGroupName 
     VMName            = $VMName
@@ -53,7 +55,8 @@ Write-Verbose ("Invoke AzRunCommand on $($VMName) to retreive the status of NetA
 $result = Invoke-AzVMRunCommand @RunCommand
 
 Write-Verbose ($result.Value[0].message | ConvertTo-Json) -Verbose
-[Microsoft.Azure.Commands.Compute.Automation.Models.PSRunCommandResult]
+
+
 $Taging = @{
     ResourceGroupName = $ResourceGroupName 
     Name              = $VMName

@@ -11,9 +11,18 @@
       ]
     },
     {
-      "type": "http",
+      "type": "queue",
       "direction": "out",
-      "name": "Response"
+      "name": "Queue",
+      "queueName": "installation",
+      "connection": "Storage"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "outputQueueItem",
+      "queueName": "outqueue",
+      "connection": "Storage"
     }
   ]
 }
