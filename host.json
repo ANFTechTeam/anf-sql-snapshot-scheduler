@@ -20,8 +20,9 @@
   },
   "logging": {
     "logLevel": {
-      "Function.NetAppSQL": "Debug",
-      "default": "Debug"
+      "Function.NetAppSQL": "Warning",
+      "Function.StartProcess": "Warning",
+      "default": "Warning"
     }
   }
 }

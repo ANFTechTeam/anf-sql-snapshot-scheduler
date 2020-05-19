@@ -1,19 +1,17 @@
 {
   "bindings": [
-   
     {
+      "name": "QueueItem",
       "type": "queueTrigger",
-      "connection": "Storage",
-      "dataType": "string",
       "direction": "in",
-      "name": "Request",
-      "queueName": "start"
+      "queueName": "startvm",
+      "connection": "Storage"
     },
     {
       "type": "queue",
       "direction": "out",
       "name": "Queue",
-      "queueName": "installation",
+      "queueName": "checkInstall",
       "connection": "Storage"
     },
     {

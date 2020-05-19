@@ -7,19 +7,27 @@
   },
   "bindings": [
     {
-      "authLevel": "function",
-      "type": "httpTrigger",
+      "type": "queueTrigger",
+      "connection": "Storage",
+      "dataType": "string",
       "direction": "in",
       "name": "Request",
-      "methods": [
-        "post",
-        "get"
-      ]
+      "queueName": "checkInstall"
     },
     {
-      "type": "http",
+      "type": "queue",
       "direction": "out",
-      "name": "Response"
+      "name": "installation",
+      "queueName": "installation",
+      "connection": "Storage"
+    },
+    
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "installed",
+      "queueName": "installed",
+      "connection": "Storage"
     }
   ]
 }
