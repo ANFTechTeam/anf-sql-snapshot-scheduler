@@ -12,7 +12,42 @@ brew
 
 Overview :
 [![](https://mermaid.ink/img/eyJjb2RlIjoiXG5ncmFwaCBURFxuICBBW0hUVFAgQ2FsbF1cbiAgRjQoUHJlU25hcHNob3QtVG9kbylcbiAgRjUoUG9zdFNuYXBzaG90LVRvZG8pXG4gIEEgLS0-fFBPU1QgYXBpL1N0YXJ0UHJvY2Vzc3wgRjAoU3RhcnRQcm9jZXNzKVxuICBBIC0tPiBGNFxuICBBIC0tPiBGNVxuICBGMChTdGFydFByb2Nlc3MpXG4gIEYxKFN0YXJ0Vk0pXG4gIEYyKGNoZWNrSW5zdGFsbClcbiAgRjMoTmV0QXBwU1FMKVxuXG4gIEYwIC0tPnxzZW5kIG1lc3NhZ2UgaW4gc3RhcnR2bXwgUTBcblx0UTAgLS0-fGxpc3RlbiBmb3Igc3RhcnR2bXwgRjEoU3RhcnRWTSlcbiAgRjEgLS0-IHxzZW5kIFZNIFN0YXJ0ZWR8IFExXG4gIFExIC0tPiB8c3RhcnQgY2hlY2tpbmcgaW5zdGFsbGF0aW9ufCBGMlxuICBGMiAtLT4gfG5vdCBpbnN0YWxsZWR8IFEyXG4gIEYyIC0tPiB8aW5zdGFsbGVkfCBRM1xuICBRMiAtLT4gRjNcbiAgRjMgLS0-IFEzXG4gIFEzIC0tPiBGNFxuICBzdWJncmFwaCBpZGUxIFtRdWV1ZXNdXG4gICAgUTA-c3RhcnR2bV1cbiAgICBRMT5jaGVja0luc3RhbGxdXG4gICAgUTI-aW5zdGFsbGF0aW9uXVxuICAgIFEzPmluc3RhbGxlZF1cbiAgICBRWj5lcnJvcl1cbiAgZW5kXG4gIEYxIC4tPiB8c2VuZCBlcnJvcnwgUVpcbiAgRjIgLi0-IHxzZW5kIGVycm9yfCBRWlxuICBGMyAuLT4gfHNlbmQgZXJyb3J8IFFaXG4gIEYwIC4tPiB8c2VuZCBlcnJvcnwgUVpcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkYXJrIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5ncmFwaCBURFxuICBBW0hUVFAgQ2FsbF1cbiAgRjQoUHJlU25hcHNob3QtVG9kbylcbiAgRjUoUG9zdFNuYXBzaG90LVRvZG8pXG4gIEEgLS0-fFBPU1QgYXBpL1N0YXJ0UHJvY2Vzc3wgRjAoU3RhcnRQcm9jZXNzKVxuICBBIC0tPiBGNFxuICBBIC0tPiBGNVxuICBGMChTdGFydFByb2Nlc3MpXG4gIEYxKFN0YXJ0Vk0pXG4gIEYyKGNoZWNrSW5zdGFsbClcbiAgRjMoTmV0QXBwU1FMKVxuXG4gIEYwIC0tPnxzZW5kIG1lc3NhZ2UgaW4gc3RhcnR2bXwgUTBcblx0UTAgLS0-fGxpc3RlbiBmb3Igc3RhcnR2bXwgRjEoU3RhcnRWTSlcbiAgRjEgLS0-IHxzZW5kIFZNIFN0YXJ0ZWR8IFExXG4gIFExIC0tPiB8c3RhcnQgY2hlY2tpbmcgaW5zdGFsbGF0aW9ufCBGMlxuICBGMiAtLT4gfG5vdCBpbnN0YWxsZWR8IFEyXG4gIEYyIC0tPiB8aW5zdGFsbGVkfCBRM1xuICBRMiAtLT4gRjNcbiAgRjMgLS0-IFEzXG4gIFEzIC0tPiBGNFxuICBzdWJncmFwaCBpZGUxIFtRdWV1ZXNdXG4gICAgUTA-c3RhcnR2bV1cbiAgICBRMT5jaGVja0luc3RhbGxdXG4gICAgUTI-aW5zdGFsbGF0aW9uXVxuICAgIFEzPmluc3RhbGxlZF1cbiAgICBRWj5lcnJvcl1cbiAgZW5kXG4gIEYxIC4tPiB8c2VuZCBlcnJvcnwgUVpcbiAgRjIgLi0-IHxzZW5kIGVycm9yfCBRWlxuICBGMyAuLT4gfHNlbmQgZXJyb3J8IFFaXG4gIEYwIC4tPiB8c2VuZCBlcnJvcnwgUVpcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkYXJrIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
- 
+
+
+```mermaid
+graph TD
+  A[HTTP Call]
+  F4(PreSnapshot-Todo)
+  F5(PostSnapshot-Todo)
+  A -->|POST api/StartProcess| F0(StartProcess)
+  A --> F4
+  A --> F5
+  F0(StartProcess)
+  F1(StartVM)
+  F2(checkInstall)
+  F3(NetAppSQL)
+  F0 -->|send message in startvm| Q0
+	Q0 -->|listen for startvm| F1(StartVM)
+  F1 --> |send VM Started| Q1
+  Q1 --> |start checking installation| F2
+  F2 --> |not installed| Q2
+  F2 --> |installed| Q3
+  Q2 --> F3
+  F3 --> Q3
+  Q3 --> F4
+  subgraph ide1 [Queues]
+    Q0>startvm]
+    Q1>checkInstall]
+    Q2>installation]
+    Q3>installed]
+    QZ>error]
+  end
+  F1 .-> |send error| QZ
+  F2 .-> |send error| QZ
+  F3 .-> |send error| QZ
+  F0 .-> |send error| QZ
+```
+
 ### Archive Functions v1
 
 #### checkInstall
