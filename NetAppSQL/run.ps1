@@ -4,7 +4,7 @@ using namespace System.Net
 param($Request, $TriggerMetadata)
 Wait-Debugger
 # Write to the Azure Functions log stream.
-
+Write-Information "[NetAppSQL] Starting Function"
 $ResourceGroupName = $Request.Get_Item("ResourceGroupName")
 $VMName = $Request.Get_Item("VMName")
 # $force = $Request.Body.Force
@@ -85,3 +85,4 @@ if ($VMName -and $ResourceGroupName)
         InProgress = $false
     } -Clobber
 }
+Write-Information "[NetAppSQL] End of Function"

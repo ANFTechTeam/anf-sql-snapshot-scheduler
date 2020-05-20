@@ -20,9 +20,12 @@
   },
   "logging": {
     "logLevel": {
-      "Function.NetAppSQL": "Warning",
-      "Function.StartProcess": "Warning",
-      "default": "Warning"
+      "Function.NetAppSQL": "Information",
+      "Function.StartProcess": "Information",
+      "Function.checkInstall": "Information",
+      "Function.StartVM": "Information",
+      "Function.Pre-Snapshot": "Information",
+      "default": "Information"
     }
   }
 }

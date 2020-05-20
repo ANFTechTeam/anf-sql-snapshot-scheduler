@@ -13,7 +13,7 @@
       "type": "queue",
       "direction": "out",
       "name": "Queue",
-      "queueName": "installation",
+      "queueName": "pre-snapshot",
       "connection": "Storage"
     },
     {

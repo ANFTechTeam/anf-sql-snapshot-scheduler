@@ -1,0 +1,18 @@
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "pre-snapshot",
+      "connection": "Storage"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Queue",
+      "queueName": "post-snapshot",
+      "connection": "Storage"
+    }
+  ]
+}
